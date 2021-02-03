@@ -120,9 +120,16 @@
               "devServerTarget": "campPolyhacks2021:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "campPolyhacks2021"
+  "defaultProject": "campPolyhacks2021",
+  "cli": {
+    "analytics": "bea6dd47-7411-43df-aa9b-c65ea6eee9da"
+  }
 }

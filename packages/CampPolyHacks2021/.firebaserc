@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "camppolyhacks2021": {
+      "hosting": {
+        "campPolyhacks2021": [
+          "camppolyhacks2021"
+        ]
+      }
+    }
+  }
+}
