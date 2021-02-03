@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "camppolyhacks2021": {
-      "hosting": {
-        "campPolyhacks2021": [
-          "camppolyhacks2021"
-        ]
-      }
-    }
+  "projects": {
+    "default": "camppolyhacks2021"
   }
 }
