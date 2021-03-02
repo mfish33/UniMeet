@@ -3,11 +3,7 @@
   "info": {
     "title": "API Service",
     "version": "1.0.0",
-    "description": "API Service endpoints",
-    "contact": {
-      "email": "sidhant@panda.fyi",
-      "name": "Sidhant Panda"
-    }
+    "description": "API Service endpoints"
   },
   "servers": [
     {

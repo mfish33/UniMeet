@@ -68,7 +68,6 @@ describe('Error Handling Middleware', () => {
       stringValue: Joi.string()
     });
 
-
     const wrappedRoute = requestMiddleware(sampleRoute, { validation: { body: bodySchema } });
     await wrappedRoute(badRequest, null, next);
 

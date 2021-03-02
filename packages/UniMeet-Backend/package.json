@@ -1,7 +1,7 @@
 {
-  "name": "express-typescript-boilerplate",
-  "version": "1.0.0",
-  "description": "A minimalist TypeScript-Express boilerplate",
+  "name": "unimeet-backend",
+  "version": "0.0.1",
+  "description": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sidhantpanda/express-typescript-boilerplate.git"
@@ -13,11 +13,11 @@
     "boilerplate",
     "eslint"
   ],
-  "author": "Sidhant Panda",
+  "author": "UniMeet",
   "main": "dist/index.js",
   "scripts": {
-    "eslint": "eslint src/server.ts",
     "postinstall": "chmod +x ./scripts/dev.sh",
+    "eslint": "eslint src/server.ts",
     "setup-actions": "chmod +x ./scripts/setup-github-actions.sh; ./scripts/setup-github-actions.sh",
     "build": "tsc",
     "lint": "./node_modules/eslint/bin/eslint.js  src --ext .ts",
@@ -32,7 +32,6 @@
     "compression": "1.7.4",
     "dotenv": "8.2.0",
     "express": "4.17.1",
-    "mongoose": "5.11.8",
     "nodemon": "2.0.6",
     "swagger-ui-express": "4.1.6",
     "winston": "3.3.3"
@@ -57,9 +56,5 @@
     "ts-jest": "26.4.4",
     "typescript": "4.1.3"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sidhantpanda/docker-express-typescript-boilerplate/issues"
-  },
-  "homepage": "https://github.com/sidhantpanda/docker-express-typescript-boilerplate#readme"
+  "license": "MIT"
 }
