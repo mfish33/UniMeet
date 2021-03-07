@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "@unimeet/cloud-functions",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
@@ -14,6 +14,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@unimeet/shared": "^1.0.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^8.13.0",
@@ -24,6 +25,5 @@
     "firebase-functions-test": "^0.2.0",
     "tslint": "^5.12.0",
     "typescript": "^3.8.0"
-  },
-  "private": true
+  }
 }

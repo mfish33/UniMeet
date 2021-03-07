@@ -1,5 +1,5 @@
 {
-  "name": "unimeet-backend",
+  "name": "@unimeet/backend",
   "version": "0.0.1",
   "description": "",
   "repository": {
@@ -16,7 +16,6 @@
   "author": "UniMeet",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "chmod +x ./scripts/dev.sh",
     "eslint": "eslint src/server.ts",
     "setup-actions": "chmod +x ./scripts/setup-github-actions.sh; ./scripts/setup-github-actions.sh",
     "build": "tsc",
@@ -28,6 +27,7 @@
   },
   "dependencies": {
     "@hapi/joi": "17.1.1",
+    "@unimeet/shared": "^1.0.2",
     "body-parser": "1.19.0",
     "compression": "1.7.4",
     "dotenv": "8.2.0",
