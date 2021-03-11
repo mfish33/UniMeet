@@ -4,10 +4,6 @@ Unimeet is a platform to bring like-minded students together that would not trad
 ## Getting Started
 This repo is organized as a mono-repo using [lerna](https://github.com/lerna/lerna):
 
-Install Lerna:
-```bash
-npm install
-```
 Bootstrap dependencies:
 ```bash
 npx lerna bootstrap
