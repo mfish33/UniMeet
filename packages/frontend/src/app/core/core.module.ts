@@ -1,10 +1,11 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   providers: [],
   imports: [],
-  declarations: [],
-  exports: []
+  declarations: [NavbarComponent],
+  exports: [NavbarComponent]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

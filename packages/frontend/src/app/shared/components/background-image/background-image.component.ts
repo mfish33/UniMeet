@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input, HostListener } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Component, OnInit, ViewChild, ElementRef, Input, HostListener } from '@angular/core';
+import sizer from 'image-sizer'
 
 @Component({
   selector: 'app-background-image',
@@ -8,34 +8,21 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class BackgroundImageComponent implements OnInit {
 
-  constructor(
-    private sanitizer:DomSanitizer
-  ) { }
+  constructor() { }
 
   public backgroundRatio:number
   public windowRatio:number
   @ViewChild('background') backgroundImage: ElementRef
   @Input() src: string
   @Input() centered:boolean
-  public imgSrc:SafeUrl
   public offset = 0
 
   async ngOnInit(): Promise<void> {
     const imgRes = await fetch(this.src)
-    const imgBlob = await imgRes.blob()
-    const imgUrl = URL.createObjectURL(imgBlob)
-    this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(imgUrl)
-    const imgDims = await this.getPngDimensions(imgBlob)
+    const imgArrayBuffer = await imgRes.arrayBuffer()
+    const imgDims = sizer(imgArrayBuffer)
     this.backgroundRatio = imgDims.width / imgDims.height
     this.onResize()
-  }
-
-  async getPngDimensions(pngBlob:Blob): Promise<{width:number, height:number}> {
-    let dv = new DataView(await pngBlob.slice(16, 24).arrayBuffer()) 
-    return{
-      width: dv.getInt32(0),
-      height: dv.getInt32(4)
-    }
   }
 
   @HostListener('window:resize', ['$event'])
