@@ -1,0 +1,30 @@
+@import './src/styles.scss';
+
+nav {
+    background-color: $primary;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    .logoPlaceholder {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        background-color: white;
+    }
+    .authOptions{
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        @extend .open-sans;
+        color: white;
+        font-size: 24px;
+        line-height: 0pz;
+        span {
+            margin-left: 10px;
+        }
+    }
+}

@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
 body{
     margin: 0;
 }
 
 /* Variables */
+$header-width:80px;
 $footer:45px;
 $mobile-header:60px;
+
 $mobileBreakpoint:800px;
+
+$primary:#0C9519;
+$primary-10:#4AB538;
+$primary-20:#D6D937;
+
 
 /* Utils */
 
@@ -26,3 +35,22 @@ $mobileBreakpoint:800px;
 
 
 /* FONTS */
+
+.open-sans {
+    font-family: Open Sans;
+    font-style: normal;
+}
+
+.open-sans-small-header {
+    @extend .open-sans;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 65px;
+}
+
+.open-sans-text {
+    @extend .open-sans;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 48px;
+}

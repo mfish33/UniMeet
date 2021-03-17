@@ -1,0 +1,103 @@
+@import './src/styles.scss';
+
+.splash-image{
+    img {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 58vw;
+    }
+}
+
+
+.main-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $primary;
+    .list-item{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-around;   
+        .bubbles{
+            $bubble-size:500px;
+            position: relative;
+            min-height: $bubble-size;
+            
+            .background-bubbles {
+                position: absolute;
+                height: $bubble-size;
+                left: 0;
+                top: 0;
+            }
+            .show-image {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+             
+        }
+        .text {
+            color: white;
+            width: 600px;
+            h3{
+                @extend .open-sans-small-header;
+                margin: 0
+            }
+            p{
+                margin: 0;
+                @extend .open-sans-text;
+            }
+        }
+    }
+    .b1 {
+        .bubbles{
+            min-width: 425px;
+            .show-image{
+                height: 350px;
+                left: 80px;
+                top: 60px;
+            }  
+        }
+    }
+    .b2 {
+        .bubbles{ 
+            min-width: 475px;
+            .background-bubbles{
+                left: 50px;
+            }
+            .show-image{
+                height: 300px;
+                top: 100px;
+            }
+        }
+    }
+    .b3 {
+        .bubbles {
+            min-width: 525px;
+            .show-image{
+                height: 400px;
+                left: 120px;
+                top: 50px;
+            }
+        }
+    }
+    .sign-up{
+        margin: 40px 0 80px 0;
+        button{
+            width: 487px;
+            height: 151px;
+            background: #BADE4C;
+            border-radius: 60px;
+            @extend .open-sans;
+            font-weight: bold;
+            font-size: 60px;
+            text-align: center;
+            color: white;
+            border: 0;
+
+        }
+    }
+}
