@@ -6,8 +6,8 @@
     "serve": "npm run build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "npm run build && firebase deploy --only functions",
-    "deploy:cd":"firebase deploy --only functions --token $FIREBASE_TOKEN",
+    "deploy": "npm run build && firelink deploy --only functions",
+    "deploy:cd": "firebase deploy --only functions --token $FIREBASE_TOKEN",
     "logs": "firebase functions:log"
   },
   "engines": {
@@ -15,11 +15,14 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@unimeet/shared": "^1.0.2",
+    "@rxdi/firelink": "^0.7.54",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^8.13.0",
     "firebase-functions": "^3.6.1"
+  },
+  "fireDependencies": {
+    "@unimeet/shared": "../shared"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",
