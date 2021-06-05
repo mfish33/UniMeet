@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="relativeWrapper">
+        <h2>Plug your Social Medias</h2>
+        <div class="horizontalAlign">
+            <form [formGroup]="form">
+                <div class="col">
+                    <div class="inputGrouping">
+                        <h5>Instagram</h5>
+                        <div class="p-inputgroup prefix">
+                            <span class="p-inputgroup-addon">instagram.com/</span> 
+                            <input type="text" pInputText formControlName="instagram" placeholder="username"> 
+                        </div> 
+                        
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>Snapchat</h5>
+                        <div class="p-inputgroup">
+                            <input type="text" pInputText formControlName="snapchat" placeholder="username">         
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>TikTok</h5>
+                        <div class="p-inputgroup prefix">
+                            <span class="p-inputgroup-addon">tiktok.com/@</span> 
+                            <input type="text" pInputText formControlName="tikTok" placeholder="username">         
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputGrouping">
+                        <h5>Twitter</h5>
+                        <div class="p-inputgroup prefix">
+                            <span class="p-inputgroup-addon">twitter.com/</span> 
+                            <input type="text" pInputText formControlName="twitter" placeholder="handle">         
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>WhatsApp</h5>
+                        <div class="p-inputgroup">
+                            <input type="text" pInputText formControlName="whatsApp" placeholder="username"> 
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>LinkedIn</h5>
+                        <div class="p-inputgroup">
+                            <input type="text" pInputText formControlName="linkedIn" placeholder="https://www.linkedin.com/">         
+                        </div>
+                    </div>
+                       
+                </div>
+            </form>
+        </div>
+
+
+        <button pButton type="button" *ngIf="buttonState[0]" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
+        <button pButton type="button" *ngIf="buttonState[1]" icon="pi pi-arrow-right" class="p-button-success next" (click)="routingEvents.next(1)"></button>
+    </div>
+</div>
+

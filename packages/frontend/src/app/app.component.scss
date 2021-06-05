@@ -1,4 +1,6 @@
+@import './src/styles.scss';
+
 .navbar{
-    height: 60px;
+    height: $header-width;
     width: 100%;
 }

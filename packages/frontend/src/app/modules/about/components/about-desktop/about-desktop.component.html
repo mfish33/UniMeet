@@ -1,0 +1,28 @@
+<div class="splash-image">
+    <app-background-image src = "assets/woodBackground.png" [centered]="true"></app-background-image>
+    <span class="title">Social Circle</span>
+    <span class="lower">provides a platform to <span class="bold">meet peers</span> and create <span class="bold">valuable connections</span></span>
+    <img class="scroll-arrow" src="assets/scroll-arrow.png">
+
+</div>
+<div class="main-content">
+    <div class="wrapper">
+        <img class="bubble-one" src="assets/home-desktop-group-3.svg" alt="">
+        <img class="bubble-two" src="assets/home-desktop-group-3.svg" alt="">
+        <h2>Our Circle</h2>
+        <div class="backgroundCircle">
+            <div class="innerRing">
+                <div class="displayedPerson" [style]="'--angle: ' + person.angle +'deg; --opacity:'+ person.opacity" *ngFor="let person of people">
+                    <img [src]="'assets/people/' + person.image" alt="">
+                    <h3>{{person.name}}</h3>
+                    <h2>{{person.title}}</h2>
+                    <span>{{person.bio}}</span>
+                </div>
+                <div class="person" [style]="'--angle: ' + person.angle +'deg; --opacity:'+ person.opacity" *ngFor="let person of people; let i=index" (click)="swap(i)">
+                    <img [src]="'assets/people/' + person.image" alt="">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+@import './src/styles.scss';
+
+.background {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - #{$header-width});
+    background-color: $primary;
+    overflow: hidden;
+    .bubble-one {
+        position: absolute;
+        width: 400px;
+        top: 200px;
+        left: -180px;
+    }
+    .bubble-two {
+        position: absolute;
+        width: 500px;
+        bottom: -550px;
+        right: 140px;
+        transform: rotate(60deg);
+    }
+    .bubble-three {
+        position: absolute;
+        width: 370px;
+        top: 350px;
+        right: -50px;
+        transform: rotate(30deg) translateY(-50%);
+    }
+}
+

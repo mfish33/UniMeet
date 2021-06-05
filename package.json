@@ -1,11 +1,11 @@
 {
-  "name": "unimeet",
-  "private": true,
+  "name": "socialcircle",
   "devDependencies": {
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "new-version":"lerna version",
+    "new-version": "lerna version",
+    "bootstrap": "lerna bootstrap",
     "test": "lerna run test"
   }
 }

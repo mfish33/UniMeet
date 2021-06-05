@@ -1,0 +1,56 @@
+@import '../card.scss';
+@import "./src/styles.scss";
+
+
+.horizontalAlign {
+    height: 340px;
+    align-items: center;
+    form {
+        display: flex;
+        justify-content: space-around;
+        width: 800px;
+        .col {
+            display: flex;
+            flex-direction: column;  
+            justify-content: space-between;
+            height: 300px;
+            .inputGrouping {
+                display: flex;
+                flex-direction: column;
+                
+                h5 {
+                    @extend .open-sans;
+                    font-weight: 600;
+                    font-size: 22px;
+                    line-height: 24px;
+                    margin: 0 0 5px 0;
+                }
+                input {
+                    border-radius: 10px;
+                }
+                p-dropdown {
+                    border-radius: 10px;
+                    min-width: 100%;
+                }
+                .postfix {
+                    input {
+                        border-radius: 10px 0 0 10px;
+                    }
+                    span {
+                        border-radius: 0 10px 10px 0;
+                        @extend .open-sans;
+                        font-size: 14px;
+                    }
+                }
+                .p-inputgroup{
+                    width: 250px;
+                }
+            }
+        }
+    
+    }
+}
+
+:host ::ng-deep .p-password input {
+    width: 15rem;
+  }

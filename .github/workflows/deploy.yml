@@ -19,3 +19,4 @@ jobs:
       - run: npx lerna run deploy:cd
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

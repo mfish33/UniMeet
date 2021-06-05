@@ -1,0 +1,9 @@
+<div class="background">
+    <img class="bubble-one" src="assets/home-desktop-group-3.svg" alt="">
+    <img class="bubble-two" src="assets/home-desktop-group-3.svg" alt="">
+    <img class="bubble-three" src="assets/home-desktop-group-3.svg" alt="">
+    <div [@animRoutes]="animationState" class="routePortal">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>    
+</div>
+

@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="relativeWrapper">
+        <h2>Let’s get to know you</h2>
+        <div class="horizontalAlign">
+            <form [formGroup]="form">
+                <div class="col">
+                    <div class="inputGrouping">
+                        <h5>Name</h5>
+                        <div class="p-inputgroup">
+                            <input type="text" pInputText formControlName="name" placeholder="First Last">         
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>Password</h5>
+                        <div class="p-inputgroup">
+                            <input type="password" pInputText formControlName="password" placeholder="•••••••••"> 
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>Confirm Password</h5>
+                        <div class="p-inputgroup">
+                            <input type="password" pInputText formControlName="confirmPassword" placeholder="•••••••••"> 
+                        </div> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="inputGrouping">
+                        <h5>Major</h5>
+                        <div class="p-inputgroup">
+                            <p-dropdown [options]="collegeMajors" optionLabel="name" formControlName="major" placeholder="Select Your Major" [style]="dropdownStyle"></p-dropdown>       
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>Grad Year</h5>
+                        <div class="p-inputgroup">
+                            <p-dropdown [options]="gradYears" optionLabel="name" formControlName="gradYear" placeholder="Select Your Grad Year" [style]="dropdownStyle"></p-dropdown>     
+                        </div>
+                    </div>
+                    <div class="inputGrouping">
+                        <h5>Email</h5>
+                        <div class="p-inputgroup postfix">
+                            <input type="text" pInputText formControlName="email" placeholder="username"> 
+                            <span class="p-inputgroup-addon">@calpoly.edu</span> 
+                        </div> 
+                    </div>
+                       
+                </div>
+            </form>
+        </div>
+
+
+        <button pButton type="button" *ngIf="buttonState[0]" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
+        <button pButton type="button" *ngIf="buttonState[1]" icon="pi pi-arrow-right" class="p-button-success next" (click)="routingEvents.next(1)"></button>
+    </div>
+</div>
+

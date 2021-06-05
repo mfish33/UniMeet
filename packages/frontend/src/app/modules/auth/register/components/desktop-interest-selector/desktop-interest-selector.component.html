@@ -1,0 +1,33 @@
+<div class="card">   
+    <div class="relativeWrapper">
+        <h2>Let’s get to know you</h2>
+        <h3>Select at least FIVE Interests</h3>
+        <div class="horizontalAlign">
+            <div class="interestPicker">
+                <div class="topSection">
+                    <div class="filter">
+                        <div class="verticalAlign">
+                            <div class="p-inputgroup">
+                                <input type="text" pInputText placeholder="filter" [(ngModel)]="filter" (ngModelChange)="populateData()">         
+                            </div>
+                        </div>
+                    </div>
+                    <div #selectedContainer class="selected" (wheel)="captureHorizontalSelected($event)" >
+                        <div class="chip" *ngFor="let interest of form.value.selectedInterests;let i = index" (click)="removeInterest(i)">
+                            {{interest}}&nbsp;&nbsp;<div class="cross">x</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomSection">
+                    <div class="wrapper">
+                        <div class="chip" *ngFor="let interest of availableInterests$ | async;let i = index" (click)="selectInterest(interest)">
+                            {{interest}}&nbsp;&nbsp;<div class="plus">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button pButton type="button" *ngIf="buttonState[0]" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
+        <button pButton type="button" *ngIf="buttonState[1]" icon="pi pi-arrow-right" class="p-button-success next" (click)="routingEvents.next(1)"></button>
+    </div>
+</div>

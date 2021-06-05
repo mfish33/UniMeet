@@ -1,0 +1,53 @@
+@import '../card.scss';
+@import "./src/styles.scss";
+
+
+.side {
+    width: 45%;
+    h5 {
+        @extend .open-sans;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 34px;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+    textarea{
+        width: 80%;
+        min-height: 250px;
+        border-radius: 10px;
+        resize: none;
+    }
+    p {
+        margin-left: 10%;
+    }
+    .dragArea {
+        background-color: grey;
+        height: 250px;
+        width: 80%;
+    }
+    .photoEdit {
+        width: 80%;
+    }
+    .imageShowcase {
+        margin-top: 20px;
+        width: 80%;
+        img {
+            $showcaseImageSize:150px;
+            width: $showcaseImageSize;
+            height: $showcaseImageSize;
+            border-radius: 100%;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+    }
+    .buttons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        button {
+            margin: 0 10px 0 10px;
+        }
+    }
+}

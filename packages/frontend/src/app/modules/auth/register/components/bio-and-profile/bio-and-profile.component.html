@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="relativeWrapper">
+        <h2>Show off who you are</h2>
+        <form [formGroup]="form">
+            <div class="horizontalAlign">
+                <div class="side">
+                    <h5>Biography</h5>
+                    <div class="horizontalAlign">
+                        <textarea pInputTextarea formControlName="bio"></textarea>
+                    </div>
+                    <p *ngIf="!(bioLength | async)">0/{{MAX_BIO_SIZE}}</p>
+                    <p *ngIf="bioLength | async as len" [style.color]="len < MAX_BIO_SIZE ? 'black' : 'red'">{{len}}/{{MAX_BIO_SIZE}}</p>
+                </div>
+                <div class="side">
+                    <h5>Profile Picture</h5>
+                    <div class="horizontalAlign">
+                        <div *ngIf="!imageBlob && !photoConfirmed" class="dragArea" appDragFile (fileDropped)="dragEvent($event)"></div>
+                
+                        <div *ngIf="imageBlob && !photoConfirmed" class="photoEdit">
+                            <image-cropper
+                                [imageFile]="imageBlob"
+                                [maintainAspectRatio]="true"
+                                [aspectRatio]="1"
+             
+                                (imageCropped)="imageCropped($event)"
+                            ></image-cropper>
+                            <div class="buttons">
+                                <button (click)="imageBlob = null" pButton type="button" icon="pi pi-trash" class="p-button-danger"></button>
+                                <button pButton type="button" (click)="photoConfirmed = true" icon="pi pi-check" class="p-button-success"></button>
+                            </div>
+                        </div>
+                        <div class="imageShowcase" *ngIf="photoConfirmed">
+                            <div class="horizontalAlign">
+                                <img [src]="form.value.profileImage"/>
+                            </div>
+                            <div class="horizontalAlign">
+                                <div class="buttons">
+                                    <button (click)="imageBlob = null; photoConfirmed = false" pButton type="button" icon="pi pi-trash" class="p-button-danger"></button>
+                                    <button pButton type="button" (click)="photoConfirmed = false" icon="pi pi-pencil" class="p-button-warning"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+  
+                </div>
+            </div>
+        </form>
+        <button pButton type="button" *ngIf="buttonState[0]" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
+        <button pButton type="button" *ngIf="buttonState[1]" icon="pi pi-arrow-right" class="p-button-success next" (click)="routingEvents.next(1)"></button>
+    </div>
+</div>
+

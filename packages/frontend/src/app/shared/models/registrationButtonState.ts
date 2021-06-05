@@ -1,0 +1,1 @@
+export type registrationButtonState = [boolean, boolean]

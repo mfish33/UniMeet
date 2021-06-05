@@ -1,0 +1,155 @@
+@import './src/styles.scss';
+
+.splash-image{
+    color: white;
+    .title {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @extend .open-sans;
+        font-weight: 600;
+        font-size: 12vw;
+        text-align: center;
+        width: 100%;
+        z-index: 100;
+    }
+    .lower {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        width: 85%;
+        text-align: center;
+        transform: translate(-50%,-50%);
+        @extend .open-sans;
+        font-size: 5vw;
+        z-index: 100;
+        .bold {
+            font-weight: 800;
+        }
+    }
+    .scroll-arrow {
+        z-index: 100;
+        position: absolute;
+        width: 100px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+
+.main-content {
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $primary;
+    
+    .wrapper{
+        position: relative;
+        overflow: hidden;
+        height: calc(700px + 40vh);
+        .bubble-one {
+            position: absolute;
+            top: -5vw;
+            left: -10vw;
+            width: 25vw;
+        }
+        .bubble-two {
+            position: absolute;
+            bottom: -10vw;
+            right: -5vw;
+            width: 25vw;
+        }
+        h2 {
+            @extend .open-sans;
+            color: white;
+            text-align: center;
+            font-size: 9vw;
+            line-height: 10vw;
+            margin-top: 40px;
+        }
+        .backgroundCircle {
+            display: grid;
+            place-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background-color: rgba(214, 217, 55, 0.75);
+            border-radius: 100%;
+            margin-top: 60px;
+            .innerRing {
+                position: relative;
+                width: 650px;
+                height: 650px;
+                border-radius: 100%;
+                background-color: rgb(255, 255, 255, 0.75);
+                .displayedPerson {
+                    position: absolute;
+                    top: 40px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    text-align: center;
+                    opacity: calc((var(--opacity) - 1) * -1);
+                    transition: .8s ease all;
+                    img {
+                        width: 250px;
+                        height: 250px;
+                        border-radius: 100%;
+                    }
+                    h3 {
+                        @extend .open-sans;
+                        font-weight: normal;
+                        font-size: 36px;
+                        line-height: 36px;
+                        margin: 10px 0 0 0;
+                    }
+                    h2 {
+                        @extend .open-sans;
+                        font-size: 50px;
+                        line-height: 50px;
+                        font-weight: 800;
+                        color: black;
+                        white-space: nowrap;
+                        margin: 10px 0 30px 0;
+                    }
+                    span {
+                        @extend .open-sans;
+                        font-size: 24px;
+                        line-height: 26px
+                    }
+                    
+                }
+                .person {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(340px) rotate(calc(var(--angle) * -1));
+                    transform-origin: center;
+                    opacity: var(--opacity);
+                    display: grid;
+                    place-items: center;
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 100%;
+                    background-color: rgb(74, 181, 56, 0.75);
+                    transition: .8s ease all ;
+                    img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+::ng-deep .background {
+    z-index: 100;
+}
