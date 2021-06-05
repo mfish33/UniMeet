@@ -5,6 +5,7 @@ import { BackgroundImageComponent } from './components/background-image/backgrou
 import { ParallaxTitleComponent } from './components/parallax-title/parallax-title.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DragFileDirective } from './directives/dragFile.directive';
+import { RouterModule } from '@angular/router';
 
 const components = [
   BackgroundImageComponent,
@@ -17,7 +18,8 @@ const components = [
   declarations: components,
   imports: [
     CommonModule,
-    PrimeModule
+    PrimeModule,
+    RouterModule
   ],
   exports:[PrimeModule,...components]
 })
