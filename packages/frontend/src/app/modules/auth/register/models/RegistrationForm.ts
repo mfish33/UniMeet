@@ -1,8 +1,22 @@
 import { FormControl, FormGroup } from "@angular/forms";
+import { BioAndProfileComponent } from "../components/bio-and-profile/bio-and-profile.component";
+import { DesktopGetToKnowYouComponent } from "../components/desktop-get-to-know-you/desktop-get-to-know-you.component";
+import { DesktopInterestSelectorComponent } from "../components/desktop-interest-selector/desktop-interest-selector.component";
+import { SlidingCardComponent } from "../components/sliding-card/sliding-card.component";
+import { SocialMediasComponent } from "../components/social-medias/social-medias.component";
 
-export const RegistrationForm:{route:string, form:FormGroup}[] = [
+
+export interface RegistrationFormRoute {
+  path:string,
+  component:typeof SlidingCardComponent,
+  form:FormGroup
+}
+
+
+export const RegistrationForm:RegistrationFormRoute[] = [
   {
-    route:'info',
+    path:'info',
+    component: DesktopGetToKnowYouComponent,
     form:new FormGroup({
       name: new FormControl(''),
       major: new FormControl(''),
@@ -13,13 +27,15 @@ export const RegistrationForm:{route:string, form:FormGroup}[] = [
     })
   },
   {
-    route:'interests',
+    path:'interests',
+    component: DesktopInterestSelectorComponent,
     form:new FormGroup({
       selectedInterests:new FormControl([])
     })
   },
   {
-    route:'about',
+    path:'about',
+    component: BioAndProfileComponent,
     form:new FormGroup({
       bio: new FormControl(''),
       profileImage: new FormControl(''),
@@ -27,7 +43,8 @@ export const RegistrationForm:{route:string, form:FormGroup}[] = [
     })
   },
   {
-    route:'social-medias',
+    path:'social-medias',
+    component: SocialMediasComponent,
     form:new FormGroup({
       instagram: new FormControl(''),
       twitter: new FormControl(''),

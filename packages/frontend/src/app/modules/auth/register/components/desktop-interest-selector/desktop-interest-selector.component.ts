@@ -1,8 +1,7 @@
-import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { registrationButtonState } from 'src/app/shared/models/registrationButtonState';
+import { SlidingCardComponent } from '../sliding-card/sliding-card.component';
 import { availableInterests } from './Interests';
 
 @Component({
@@ -10,11 +9,8 @@ import { availableInterests } from './Interests';
   templateUrl: './desktop-interest-selector.component.html',
   styleUrls: ['./desktop-interest-selector.component.scss']
 })
-export class DesktopInterestSelectorComponent implements OnInit {
+export class DesktopInterestSelectorComponent extends SlidingCardComponent implements OnInit {
   
-  @Output() public routingEvents:BehaviorSubject<number> = new BehaviorSubject(0)
-  @Input() public buttonState:registrationButtonState
-  @Input() public form:FormGroup
   @ViewChild('selectedContainer') public selectedContainer:ElementRef
   public filter:string = ''
   public availableInterests = availableInterests
@@ -23,8 +19,6 @@ export class DesktopInterestSelectorComponent implements OnInit {
   .pipe(map(interests => {
     return interests.filter(interest => interest.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()))
   }))
-
-  constructor() { }
 
   ngOnInit(): void {
     this.populateData()

@@ -12,12 +12,13 @@ import { SocialMediasComponent } from './components/social-medias/social-medias.
 import { BioAndProfileComponent } from './components/bio-and-profile/bio-and-profile.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { SlidingCardComponent } from './components/sliding-card/sliding-card.component';
 
 @NgModule({
   declarations: [
     DesktopGetToKnowYouComponent, 
     RegisterDesktopBaseComponent, 
-    DesktopInterestSelectorComponent, SocialMediasComponent, BioAndProfileComponent],
+    DesktopInterestSelectorComponent, SocialMediasComponent, BioAndProfileComponent, SlidingCardComponent],
   imports: [
     CommonModule,
     RegisterRoutingModule,

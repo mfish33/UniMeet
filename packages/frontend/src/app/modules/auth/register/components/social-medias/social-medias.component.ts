@@ -1,7 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
-import { registrationButtonState } from 'src/app/shared/models/registrationButtonState';
+import { Component } from '@angular/core';
+import { SlidingCardComponent } from '../sliding-card/sliding-card.component';
 
 
 @Component({
@@ -9,15 +7,6 @@ import { registrationButtonState } from 'src/app/shared/models/registrationButto
   templateUrl: './social-medias.component.html',
   styleUrls: ['./social-medias.component.scss']
 })
-export class SocialMediasComponent implements OnInit {
-
-  @Output() public routingEvents:BehaviorSubject<number> = new BehaviorSubject(0)
-  @Input() public buttonState:registrationButtonState
-  @Input() public form:FormGroup
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class SocialMediasComponent extends SlidingCardComponent {
 
 }

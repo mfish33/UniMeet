@@ -2,6 +2,7 @@ import {trigger, transition } from '@angular/animations';
 import { Component, isDevMode, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegistrationForm } from '../../models/RegistrationForm';
+import { SlidingCardComponent } from '../sliding-card/sliding-card.component';
 import { right, left } from './animations';
 
 @Component({
@@ -30,7 +31,7 @@ export class RegisterDesktopBaseComponent implements OnInit {
       // HAD TO BE PUT IN THE CONSTRUCTOR BECAUSE IT WAS RUNNING ROUTER EVENT BEFORE INIT
       let [,currentRoute] = window.location.href.match(/\/register\/(.+)/)
       if(route) {
-        let i = this.pages.findIndex(p => p.route == currentRoute)
+        let i = this.pages.findIndex(p => p.path == currentRoute)
         this.pagesIndex = i != -1 ? i : 0
       }
     }
@@ -40,12 +41,13 @@ export class RegisterDesktopBaseComponent implements OnInit {
 
   }
 
-  onActivate(elementRef) {
+  onActivate(elementRef: SlidingCardComponent) {
     this.animationState = this.route.firstChild.snapshot.data['routeIdx'];
     elementRef.routingEvents.subscribe((event:number) => {
       this.pagesIndex += event
-      this.router.navigate(['/','register',this.pages[this.pagesIndex].route])
+      this.router.navigate(['/','register',this.pages[this.pagesIndex].path])
     });
+    // Setup component inputs
     elementRef.buttonState = [!!this.pages[this.pagesIndex - 1], !!this.pages[this.pagesIndex + 1]]
     elementRef.form = this.pages[this.pagesIndex].form
   }

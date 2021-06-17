@@ -1,27 +1,21 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { registrationButtonState } from 'src/app/shared/models/registrationButtonState';
+import { SlidingCardComponent } from '../sliding-card/sliding-card.component';
 
 @Component({
   selector: 'app-bio-and-profile',
   templateUrl: './bio-and-profile.component.html',
   styleUrls: ['./bio-and-profile.component.scss']
 })
-export class BioAndProfileComponent implements OnInit {
+export class BioAndProfileComponent extends SlidingCardComponent implements OnInit  {
 
-  @Output() public routingEvents:BehaviorSubject<number> = new BehaviorSubject(0)
-  @Input() public buttonState:registrationButtonState
-  @Input() public form:FormGroup
   public bioLength:Observable<number>
   public MAX_BIO_SIZE:number = 300
 
   public imageBlob:File
   public photoConfirmed = false
-
-  constructor() { }
 
   ngOnInit(): void {
     if(this.form.value['profileImage']) {
