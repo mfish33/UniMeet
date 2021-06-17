@@ -31,8 +31,9 @@ export class BioAndProfileComponent implements OnInit {
     this.bioLength = this.form.get('bio').valueChanges.pipe(map((s:string) => s.length))
   }
 
-  dragEvent(event: any): void {
-    let file:File = event.item(0)
+  public dragEvent(event: any, browse = false): void {
+    let files = browse ? event.target.files : event
+    let file:File = files.item(0)
     if(!file.type.includes('png')) {
       return
     }
@@ -40,7 +41,7 @@ export class BioAndProfileComponent implements OnInit {
     this.imageBlob = file;
   }
 
-  imageCropped(event: ImageCroppedEvent) {
+  public imageCropped(event: ImageCroppedEvent) {
       this.form.get('profileImage').setValue(event.base64)
   }
 }
