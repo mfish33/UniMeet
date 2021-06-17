@@ -6,6 +6,9 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 const primeNgImports = [
   ButtonModule,
@@ -13,7 +16,8 @@ const primeNgImports = [
   PasswordModule,
   DividerModule,
   DropdownModule,
-  InputTextareaModule
+  InputTextareaModule,
+  ToastModule
 ]
 
 
@@ -22,6 +26,7 @@ const primeNgImports = [
   imports: [
     CommonModule,...primeNgImports
   ],
+  providers:[MessageService],
   exports:primeNgImports
 })
 export class PrimeModule { }

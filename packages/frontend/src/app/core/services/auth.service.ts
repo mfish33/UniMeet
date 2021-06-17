@@ -6,7 +6,7 @@ import firebase from 'firebase/app';
 // Need to be able to use auth providers on "firebase"
 import 'firebase/auth'
 import SimpleCrypto from "simple-crypto-js"
-import { Router } from '@angular/router';
+import { RegistrationForm } from 'src/app/modules/auth/register/models/RegistrationForm';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs:AngularFirestore,
-    private router:Router
   ) {
      
   }
@@ -46,7 +45,22 @@ export class AuthService {
     return attempt
   }
 
-  public async registerEmail(email: string, password: string, name:string, age:number): Promise<void> {
+  public async register(pages:typeof RegistrationForm): Promise<void> {
+
+    let { email, password, name } = pages[0].form.value
+    email = `${email}@calpoly.edu`
+
+    let filteredKeys = new Set(['password', 'confirmPassword', 'name', 'profileImage', 'originalImage'])
+    let additionalDetails = pages
+    .map(page => Object.keys(page.form.value)
+    .reduce((acc,key) => {
+      if(!filteredKeys.has(key)) {
+        acc[key] = page.form.value[key]
+      }
+      return acc
+    },{}))
+    .reduce((acc,curr) => ({...acc,...curr}),{})
+
     let attempt:firebase.auth.UserCredential
     try {
       attempt = await this.afAuth.createUserWithEmailAndPassword(email, password)
@@ -56,14 +70,13 @@ export class AuthService {
     await attempt.user.updateProfile({
       displayName:name
     })
-    this.afs.collection('users').doc(attempt.user.uid).set({
-      name:name,
-      age:age
-    }, {merge:true})
+    this.afs.collection('users').doc(attempt.user.uid).set(additionalDetails, {merge:true})
+
+    // Set autologin key on confirmation link
     const key = SimpleCrypto.generateRandom()
     const crypto = new SimpleCrypto(key)
     localStorage.setItem(this.AUTO_SIGN_IN_KEY,JSON.stringify({
-      email:email,
+      email,
       password:crypto.encrypt(password),
       restorePoint:'portal'
     }))
@@ -87,8 +100,7 @@ export class AuthService {
     const userData = JSON.parse(data)
     const decryptPassword = crypto.decrypt(userData.password)
     try{
-      this.router.navigateByUrl(userData.restorePoint)
-      await this.signInEmail(userData.email,decryptPassword as string)
+      await this.signInEmail(userData.email, decryptPassword as string)
       localStorage.removeItem(this.AUTO_SIGN_IN_KEY)
     } catch(e) {
       console.error(e)

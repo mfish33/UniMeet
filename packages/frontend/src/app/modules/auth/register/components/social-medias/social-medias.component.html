@@ -52,8 +52,9 @@
         </div>
 
 
-        <button pButton type="button" *ngIf="buttonState[0]" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
+        <button pButton type="button" *ngIf="buttonState[0] || (!buttonState[0] && !buttonState[1])" icon="pi pi-arrow-left" class="p-button-success back" (click)="routingEvents.next(-1)"></button>
         <button pButton type="button" *ngIf="buttonState[1]" icon="pi pi-arrow-right" class="p-button-success next" (click)="routingEvents.next(1)"></button>
+        <button pButton type="button" *ngIf="!buttonState[0] && !buttonState[1]" class="p-button-success next" (click)="routingEvents.next(1)" label="Create Acount"></button>
     </div>
 </div>
 
