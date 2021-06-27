@@ -10,15 +10,19 @@ import { DesktopInterestSelectorComponent } from './components/desktop-interest-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialMediasComponent } from './components/social-medias/social-medias.component';
 import { BioAndProfileComponent } from './components/bio-and-profile/bio-and-profile.component';
+import { SlidingCardComponent } from './components/sliding-card/sliding-card.component';
 
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { SlidingCardComponent } from './components/sliding-card/sliding-card.component';
 
 @NgModule({
   declarations: [
     DesktopGetToKnowYouComponent, 
     RegisterDesktopBaseComponent, 
-    DesktopInterestSelectorComponent, SocialMediasComponent, BioAndProfileComponent, SlidingCardComponent],
+    DesktopInterestSelectorComponent,
+    SocialMediasComponent,
+    BioAndProfileComponent,
+    SlidingCardComponent
+  ],
   imports: [
     CommonModule,
     RegisterRoutingModule,

@@ -1,9 +1,9 @@
 <nav>
-    <div class="logoPlaceholder">
+    <div class="logoPlaceholder clickable" [routerLink]="['/']">
 
     </div>
     <div class="authOptions">
-        <span>Login</span>
-        <span [routerLink]="['/register']" >Sign Up</span>
+        <span class="clickable" [routerLink]="['/login']">Login</span>
+        <span class="clickable" [routerLink]="['/register']" >Sign Up</span>
     </div>
 </nav>

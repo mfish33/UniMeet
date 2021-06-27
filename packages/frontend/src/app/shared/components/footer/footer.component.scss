@@ -25,6 +25,9 @@ footer{
             @extend .open-sans;
             font-size: 18px;
             line-height: 18px;
+            .route {
+                cursor: pointer;    
+            }
         }
         .right{
             display: flex;

@@ -1,0 +1,87 @@
+@import '../../../register/components/card.scss';
+@import "./src/styles.scss";
+
+
+.background {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - #{$header-width});
+    background-color: $primary;
+    overflow: hidden;
+    .bubble-one {
+        position: absolute;
+        width: 400px;
+        top: 200px;
+        left: -180px;
+    }
+    .bubble-two {
+        position: absolute;
+        width: 500px;
+        bottom: -550px;
+        right: 140px;
+        transform: rotate(60deg);
+    }
+    .bubble-three {
+        position: absolute;
+        width: 370px;
+        top: 350px;
+        right: -50px;
+        transform: rotate(30deg) translateY(-50%);
+    }
+}
+
+
+
+
+.horizontalAlign {
+    height: 200px;
+    align-items: center;
+    form {
+        display: flex;
+        justify-content: space-around;
+        width: 800px;
+        .col {
+            display: flex;
+            flex-direction: column;  
+            justify-content: space-between;
+            height: 175px;
+            .inputGrouping {
+                display: flex;
+                flex-direction: column;
+                
+                h5 {
+                    @extend .open-sans;
+                    font-weight: 600;
+                    font-size: 22px;
+                    line-height: 24px;
+                    margin: 0 0 5px 0;
+                }
+                input {
+                    border-radius: 10px;
+                }
+                p-dropdown {
+                    border-radius: 10px;
+                    min-width: 100%;
+                }
+                .postfix {
+                    input {
+                        border-radius: 10px 0 0 10px;
+                    }
+                    span {
+                        border-radius: 0 10px 10px 0;
+                        @extend .open-sans;
+                        font-size: 14px;
+                    }
+                }
+                .p-inputgroup{
+                    width: 250px;
+                }
+            }
+        }
+    
+    }
+}
+
+:host ::ng-deep .p-password input {
+    width: 15rem;
+  }
